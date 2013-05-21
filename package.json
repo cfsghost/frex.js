@@ -1,0 +1,32 @@
+{
+  "name": "frex.js",
+  "version": "0.0.1",
+  "description": "A framework for creating modern web applications",
+  "keywords": [
+    "database",
+    "api"
+  ],
+  "homepage": "https://github.com/cfsghost/frex.js",
+  "author": {
+    "name": "Fred Chien(錢逢祥)",
+    "email": "fred@mandice.com",
+    "web": "http://fred-zone.blogspot.com/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cfsghost/frex.js.git"
+  },
+  "directories": {
+    "tests": "lib"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "express": ">= 3.0.0"
+  },
+  "bin": {
+    "npk": "./bin/npk"
+  }
+}
