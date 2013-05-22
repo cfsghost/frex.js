@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "express": ">= 3.0.0",
-    "courser": "0.0.6"
+    "courser": "0.0.6",
+    "jade": "~0.30.0"
   },
   "main": "./lib/frex.js"
 }

@@ -2,8 +2,9 @@ var Frex = require('../../');
 
 var app = Frex();
 
-app.get('/', function(req, res){
-	res.send('hello world');
+app.configure(function() {
+	app.set('views', __dirname + '/views');
+	app.set('view engine', 'jade');
 });
 
 app.listen(8080);
