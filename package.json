@@ -24,7 +24,8 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "express": ">= 3.0.0"
+    "express": ">= 3.0.0",
+    "courser": "0.0.6"
   },
   "main": "./lib/frex.js"
 }
