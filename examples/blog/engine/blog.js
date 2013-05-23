@@ -22,4 +22,7 @@ Blog.prototype.listArticles = function(callback) {
 	callback(null, articles);
 };
 
-module.exports = new Blog;
+module.exports = {
+	engine_name: 'Blog',
+	instance: new Blog
+};
