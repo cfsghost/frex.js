@@ -23,6 +23,7 @@ Blog.prototype.listArticles = function(callback) {
 };
 
 module.exports = {
+	type: 'engine',
 	engine_name: 'Blog',
 	instance: new Blog
 };
