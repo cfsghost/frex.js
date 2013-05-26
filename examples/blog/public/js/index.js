@@ -3,15 +3,13 @@ App.require('Blog', function() {
 	var blog = App.Engine('Blog');
 
 	blog.listArticles({}, function(err, articles) {
-		console.log(articles);
 
 		// Render all
 		articles.forEach(function(article, index, arr) {
 			var doc = document.createElement('div');
 
 			// Title
-			var title = document.createElement('div');
-			title.className = 'doc_title';
+			var title = document.createElement('h3');
 			title.innerText = article.title;
 
 			// Text
@@ -26,7 +24,5 @@ App.require('Blog', function() {
 		});
 	});
 
-	blog.title = 'Test';
-
-	console.log(blog.title);
+	blog.test = 'Client';
 });

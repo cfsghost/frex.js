@@ -1,0 +1,23 @@
+html
+	head
+		title Post
+		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
+		script(type='text/javascript', src='/frex')
+		script(type='text/javascript', src='/js/post.js')
+
+	body
+		h1 Frex.js Blog
+
+		div.control_panel
+
+			a(href='/') Home
+
+		div
+			div
+				input#doc_title(type='text')
+
+			div
+				textarea#doc_text
+
+			div
+				button#post_button Post

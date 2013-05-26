@@ -1,12 +1,55 @@
 body {
-	color: #333;
+	color: #555;
+	background: #eee;
+	margin: 50px;
 }
 
-.doc_title {
-	background: #ddd;
+h1 {
+	text-shadow: 7px 7px 7px #aaa;
+}
+
+h3 {
+	text-shadow: 1px 1px 0px #fff;
+}
+
+input {
+	background: #f5f5f5;
+	border: 1px solid #aaa;
 	padding: 5px;
+	width: 50%;
+}
+
+textarea {
+	background: #f5f5f5;
+	border: 1px solid #aaa;
+	width: 50%;
+	height: 300px;
+}
+
+button {
+	padding: 5px 30px 5px 30px;
 }
 
 .doc_text {
-	padding: 5px;
+	padding: 10px;
+	margin-bottom: 30px;
+}
+
+.control_panel {
+	padding: 10px;
+	background: #333;
+	color: #ddd;
+}
+
+.control_panel a {
+	padding: 10px;
+	color: #ddd;
+	text-decoration: none;
+	text-shadow: 0px -1px 0px #000;
+}
+
+.control_panel a:hover {
+	background: #555;
+	color: #fff;
+	text-shadow: 0px -1px 0px #222;
 }
