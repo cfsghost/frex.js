@@ -1,6 +1,15 @@
 "use strict";
 
-var articles = [];
+var articles = [
+	{
+		title: 'Introduce Mandice Development Team',
+		text: 'Have fun!'
+	},
+	{
+		title: 'frex.js is Powerful Web Framework',
+		text: 'Nice'
+	}
+];
 
 var Blog = function() {
 	var self = this;
@@ -16,10 +25,13 @@ Blog.prototype.addArticle = function(article) {
 	articles.push(article);
 };
 
-Blog.prototype.listArticles = function(callback) {
+Blog.prototype.listArticles = function(opts, callback) {
 	var self = this;
 
-	callback(null, articles);
+	console.log(callback);
+
+	if (callback)
+		callback(null, articles);
 };
 
 module.exports = {
