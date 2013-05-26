@@ -1,5 +1,6 @@
 "use strict";
 
+// Private scope
 var articles = [
 	{
 		title: 'Introduce Mandice Development Team',
@@ -13,6 +14,9 @@ var articles = [
 
 var Blog = function() {
 	var self = this;
+
+	// Public Scope
+	self.title = 'Frex.js Blog';
 };
 
 Blog.prototype.articleCount = function() {
@@ -27,8 +31,6 @@ Blog.prototype.addArticle = function(article) {
 
 Blog.prototype.listArticles = function(opts, callback) {
 	var self = this;
-
-	console.log(callback);
 
 	if (callback)
 		callback(null, articles);
