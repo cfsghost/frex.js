@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var child_process = require('child_process');
+
+if (process.argv.length != 3) {
+	console.log('Usage: frex [project path]');
+	process.exit();
+}
+
+var projectPath = process.argv[2];
+
+var cp = child_process.exec('cp -a ' + path.join(__dirname, '..', 'data', 'template') + '/* ' + projectPath, function() {
+	console.log('Frex.js project was created');
+});
