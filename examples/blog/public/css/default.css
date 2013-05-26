@@ -1,3 +1,12 @@
 body {
 	color: #333;
 }
+
+.doc_title {
+	background: #ddd;
+	padding: 5px;
+}
+
+.doc_text {
+	padding: 5px;
+}

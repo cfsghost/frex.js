@@ -14,9 +14,6 @@ var articles = [
 
 var Blog = function() {
 	var self = this;
-
-	// Public Scope
-	self.title = 'Frex.js Blog';
 };
 
 Blog.prototype.articleCount = function() {
