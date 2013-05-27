@@ -8,6 +8,8 @@ App.require('Chat', function() {
 	var sayLayout = document.getElementById('say_layout');
 	var say = document.getElementById('say');
 
+	username.focus();
+
 	username.onkeypress = function(e) {
 		if (e.keyCode != 13)
 			return;

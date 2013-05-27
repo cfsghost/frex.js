@@ -3,3 +3,8 @@ body {
 	background: #eee;
 	margin: 50px;
 }
+
+input {
+	padding: 5px;
+	border: 1px solid #aaa;
+}
