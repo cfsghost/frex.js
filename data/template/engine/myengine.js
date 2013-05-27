@@ -7,5 +7,5 @@ var MyEngine = function() {
 module.exports = {
 	type: 'engine',
 	engine_name: 'MyEngine',
-	instance: new MyEngine
+	prototype: MyEngine
 };

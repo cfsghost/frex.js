@@ -42,5 +42,5 @@ Blog.prototype.listArticles = function(opts, callback) {
 module.exports = {
 	type: 'engine',
 	engine_name: 'Blog',
-	instance: new Blog
+	prototype: Blog
 };

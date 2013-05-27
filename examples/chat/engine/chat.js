@@ -32,5 +32,5 @@ Chat.prototype.addMessage = function(user, msg, callback) {
 module.exports = {
 	type: 'engine',
 	engine_name: 'Chat',
-	instance: new Chat
+	prototype: Chat
 };
