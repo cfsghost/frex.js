@@ -1,0 +1,24 @@
+html
+	head
+		title My Website
+		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
+		script(type='text/javascript', src='/frex')
+		script(type='text/javascript', src='/js/index.js')
+
+	body
+		h1 Frex.js Chat
+
+		div#messages
+
+		div
+			div#username_layout
+
+				span Nick name:
+
+				input#username(type='text')
+
+			div#say_layout(style='display: none;')
+
+				span Say:
+
+				input#say(type='text')
