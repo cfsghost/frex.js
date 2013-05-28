@@ -8,6 +8,8 @@ var messages = [];
 
 var Chat = function() {
 	var self = this;
+
+	self.topic = 'What do you think about frex.js?';
 };
 
 util.inherits(Chat, events.EventEmitter);
