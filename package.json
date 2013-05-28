@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "A framework for creating modern web applications",
   "keywords": [
-    "database",
-    "api"
+    "web",
+    "framework"
   ],
   "homepage": "https://github.com/cfsghost/frex.js",
   "author": {
