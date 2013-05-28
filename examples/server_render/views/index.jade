@@ -1,0 +1,16 @@
+html
+	head
+		title #{title}
+		link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
+		script(type='text/javascript', src='/frex')
+		script(type='text/javascript', src='/js/index.js')
+
+	body
+		h1 #{title}
+
+		div
+			each item in items
+				div(style='clear: both;')
+					div(style='float: left; padding-right: 10px;')= item.name
+					div(style='float: left;')= '$' + item.price
+			
