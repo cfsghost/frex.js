@@ -17,6 +17,13 @@ Features
 * Support all middlewares of Express web framework
 * Support cookie-based session
 
+Installation
+-
+
+Install directly via NPM
+
+    npm install frex.js
+
 License
 -
 Licensed under the MIT License
