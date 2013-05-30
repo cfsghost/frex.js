@@ -14,6 +14,7 @@ Features
 * Easy-use route manager (based on [courser](https://github.com/cfsghost/courser))
 * JavaScript RPC
 * Access control for RPC
+* Native EventEmitter integration for RPC
 * Support real-time purpose
 * Support all middlewares of Express web framework
 * Support cookie-based session
@@ -58,7 +59,7 @@ module.exports = {
 
 ### New Way to Make Your Service APIs with Engine
 
-Engine of frex.js is the fast way to implement your own APIs for communicating between client and server. Futhermore, having pure javascript experience is enough without understanding HTTP methods, AJAX and polling things.
+Engine is the fast way to implement your own service APIs, using JavaScript RPC for communicating between client and server. Futhermore, having pure javascript experience is enough for it without understanding HTTP methods, AJAX and polling things.
 
 You should put all engine files in the "engine" directory.
 
@@ -121,6 +122,37 @@ module.exports = {
         }
 };
 ```
+
+### Using Event Emitter to Hook Engine for Realtime Purpose
+
+It's possible to hook class of engine with event emitter. With event emitter support, you can make real-time service easily.
+
+__Server-side__
+```js
+var util = require('util');
+var events = require('events');
+
+var MyEngine = function() {
+    var self = this;
+    self.count = 0;
+
+    // Fire event per second
+    setTimeout(function() {
+        self.pump++;
+        self.emit('pump', self.pump);
+    }, 1000);
+};
+
+util.inherits(MyEngine, events.EventEmitter);
+```
+
+__Client-side__
+```js
+myEngine.on('pump', function(count) {
+    console.log(count);
+});
+```
+* You can see more details from `examples/chat'
 
 License
 -
