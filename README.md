@@ -13,6 +13,7 @@ Features
 * MVC (Model–view–controller)
 * Route manager (based on [courser](https://github.com/cfsghost/courser))
 * JavaScript RPC
+* Access control for RPC
 * Support real-time purpose
 * Support all middlewares of Express web framework
 * Support cookie-based session
