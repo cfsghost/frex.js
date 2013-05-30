@@ -56,6 +56,72 @@ module.exports = {
 };
 ```
 
+### New Way to Make Your Service APIs with Engine
+
+Engine of frex.js is the fast way to implement your own APIs for communicating between client and server. Futhermore, having pure javascript experience is enough without understanding HTTP methods, AJAX and polling things.
+
+You should put all engine files in the "engine" directory.
+
+___`<project directory>`/engine/myengine.js:___
+```js
+var MyEngine = function() {
+    this.message = 'Hello world';
+};
+
+MyEngine.prototype.sum = function(a, b, callback) {
+    callback(a + b);
+};
+
+module.exports = {
+        type: 'engine',
+        engine_name: 'MyEngine',
+        prototype: MyEngine
+};
+```
+
+The Engine will be running on server-side, but it's magic that you can call functions of "MyEngine" and get/set value from variable of backend engine instance on client-side. 
+
+```html
+<script type="text/javascript" src="/frex"></script>
+<script>
+
+    App.require('MyEngine', function() {
+        var myEngine = App.Engine('MyEngine');
+
+        // Get value to variable of backend engine
+        console.log(myEngine.message);
+
+        // Call function of backend engine
+        myEngine.sum(1, 3, function(result) {
+            console.log(result);
+        });
+
+        // Set value to variable of backend engine
+        myEngine.message = 'Hello Engine';
+    });
+    
+</script>
+```
+
+### Protect the APIs of Engine with Session
+
+In fact, we do not hope some APIs cannot be accessed by anybody, for instance, some APIs only can be accessed by user who has permission.
+
+Here is example to make access control for engine with Session:
+```js
+module.exports = {
+        type: 'engine',
+        engine_name: 'MyEngine',
+        prototype: MyEngine,
+        check_permission: function(data, callback) {
+            if (!data.req.session.login)
+                callback(false);
+            else
+                callback(true);
+        }
+};
+```
+
 License
 -
 Licensed under the MIT License
