@@ -25,6 +25,37 @@ Install directly via NPM
 
     npm install frex.js
 
+Getting started
+-
+
+frex.js is based on Express web framework, you can just write your web app with traditional way.
+
+___`<project directory>`/app.js:___
+```js
+var Frex = require('frex.js');
+
+var app = Frex();
+
+app.get('/', function(req, res){
+        res.send('Hello World');
+});
+
+app.listen(8080);
+```
+
+### Managing Routes with frex.js
+
+frex.js is using "routes" directory for putting route rules by default, it supports all features of [courser](https://github.com/cfsghost/courser).
+
+___`<project directory>`/routes/index.js:___
+```js
+module.exports = {
+        '/': function(req, res) {
+                res.render('index');
+        }
+};
+```
+
 License
 -
 Licensed under the MIT License
