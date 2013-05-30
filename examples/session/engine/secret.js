@@ -10,11 +10,11 @@ module.exports = {
 	type: 'engine',
 	engine_name: 'Secret',
 	prototype: Secret,
-	check_permission: function(req, res, callback) {
+	check_permission: function(data, callback) {
 		try {
 
 			// Allow to access this engine
-			if (req.session.logined) {
+			if (data.req.session.logined) {
 				callback(true);
 				return;
 			}
