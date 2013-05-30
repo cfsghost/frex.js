@@ -27,7 +27,8 @@
     "express": ">= 3.0.0",
     "courser": "0.0.6",
     "jade": "~0.30.0",
-    "node-array": "0.0.6"
+    "node-array": "0.0.6",
+    "node-uuid": "~1.4.0"
   },
   "main": "./lib/frex.js"
 }
