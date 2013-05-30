@@ -11,7 +11,7 @@ Features
 -
 
 * MVC (Model–view–controller)
-* Route manager (based on [courser](https://github.com/cfsghost/courser))
+* Easy-use route manager (based on [courser](https://github.com/cfsghost/courser))
 * JavaScript RPC
 * Access control for RPC
 * Support real-time purpose
