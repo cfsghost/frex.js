@@ -129,7 +129,7 @@ module.exports = {
 
 ### Protect the APIs of Engine with Session
 
-In fact, we do not hope some APIs cannot be accessed by anybody, for instance, some APIs only can be accessed by user who has permission.
+In fact, we hope some of APIs are not available fo anybody, it only can be accessed by user who has permission.
 
 Here is example to make access control for engine with Session:
 ```js
