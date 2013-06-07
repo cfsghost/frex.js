@@ -44,6 +44,8 @@ app.get('/', function(req, res){
 app.listen(8080);
 ```
 
+***
+
 ### Managing Routes with frex.js
 
 frex.js is using "routes" directory for putting route rules by default, it supports all features of [courser](https://github.com/cfsghost/courser).
@@ -56,6 +58,8 @@ module.exports = {
         }
 };
 ```
+
+***
 
 ### New Way to Make Your Service APIs with Engine
 
@@ -104,9 +108,28 @@ The Engine will be running on server-side, but it's magic that you can call func
 </script>
 ```
 
+### Calling APIs of Engine on the Server-side
+
+Calling APIs of Engine on client-side is not only way to use engine, you can call it on the server-side as well.
+
+Here is example to render web page on the server-side with calling APIs of engine:
+```js
+module.exports = {
+    '/': function(req, res) {
+        var myEngine = req.frex.Engine('MyEngine');
+        myEngine.sum(1, 3, function(result) {
+
+            res.render('index', { result: result });
+        });
+    }
+};
+```
+
+***
+
 ### Protect the APIs of Engine with Session
 
-In fact, we do not hope some APIs cannot be accessed by anybody, for instance, some APIs only can be accessed by user who has permission.
+In fact, we hope some of APIs are not available for anybody, it only can be accessed by user who has permission.
 
 Here is example to make access control for engine with Session:
 ```js
@@ -122,6 +145,8 @@ module.exports = {
         }
 };
 ```
+
+***
 
 ### Using Event Emitter to Hook Engine for Realtime Purpose
 
