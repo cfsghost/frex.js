@@ -90,6 +90,11 @@ The Engine will be running on server-side, but it's magic that you can call func
 <script type="text/javascript" src="/frex"></script>
 <script>
 
+    // Pass your params if you need.
+    App.setConnectionParams({
+        "_csrf": "here is your CSRF token."
+    });
+
     App.require('MyEngine', function() {
         var myEngine = App.Engine('MyEngine');
 
@@ -163,8 +168,8 @@ var MyEngine = function() {
 
     // Fire event per second
     setTimeout(function() {
-        self.pump++;
-        self.emit('pump', self.pump);
+        self.count++;
+        self.emit('pump', self.count);
     }, 1000);
 };
 
