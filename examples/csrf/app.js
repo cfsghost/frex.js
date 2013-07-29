@@ -1,5 +1,4 @@
 var Frex = require('../../');
-var http = require('http');
 
 var app = Frex();
 
@@ -28,6 +27,6 @@ app.configure(function() {
 	app.use(Frex.static(__dirname + '/public'));
 });
 
-app.listen(9000, function() {
+app.listen(8000, function() {
 	console.log('website is ready.');
 });
