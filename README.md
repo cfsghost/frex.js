@@ -184,6 +184,22 @@ myEngine.on('pump', function(count) {
 ```
 * You can see more details from `examples/chat'
 
+### Using CSRF middleware with Engine
+
+Pass your own params ( like CSRF token ) to the Engine. Using `setConnectionParams` method before you require your Engine.
+
+__Client-side__
+```js
+App.setConnectionParams({
+    "_csrf": '/* your CSRF token here. */'
+});
+
+App.require('MyEngine', function() {
+    /* code here */
+});
+```
+* You can see more details from `examples/csrf'
+
 License
 -
 Licensed under the MIT License
