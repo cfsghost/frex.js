@@ -1,0 +1,44 @@
+html
+    head
+        title My Website
+        link(href='/css/default.css', media='all', rel='stylesheet', type='text/css')
+        script(type='text/javascript', src='/frex')
+
+    body
+        h1 Frex.js
+
+        div#csrf_token
+            p There is your CSRF token #{token}
+            p Checkout your DevTools or Firebug to get more information 
+
+            button(type="button")#fire_emit Fire
+
+        script
+            // Set the csrf params to the Engine
+            App.setConnectionParams({
+                "_csrf": '#{token}'
+            });
+
+            App.require('MyCSRF', function() {
+                var csrf = App.Engine('MyCSRF');
+
+                csrf.hello({
+                    "message": "Hello, CSRF from Remote"
+                }, function(err, res) {
+                    if (err) return;
+
+                    console.log(res);
+                });
+
+                document.getElementById('fire_emit').addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    csrf.addMessage( "Fire from client-side",function() {
+                    });
+                }, false);
+
+                csrf.on('message', function(res) {
+                    console.log(res);
+                });
+
+            });
