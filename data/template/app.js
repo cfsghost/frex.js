@@ -1,4 +1,4 @@
-var Frex = require('frex');
+var Frex = require('frex.js');
 
 var app = Frex();
 
