@@ -84,7 +84,7 @@ module.exports = {
 };
 ```
 
-The Engine will be running on server-side, but it's magic that you can call functions of "MyEngine" and get/set value from variable of backend engine instance on client-side. 
+The Engine will be running on server-side, but frex.js make you able to invoke methods of "MyEngine" and get/set properties of backend engine instance on client-side. 
 
 ```html
 <script type="text/javascript" src="/frex"></script>
@@ -134,7 +134,7 @@ module.exports = {
 
 ### Protect the APIs of Engine with Session
 
-In fact, we hope some of APIs are not available for anybody, it only can be accessed by user who has permission.
+In fact, we hope some of APIs are not available to be accessed by anybody, permission check is needed.
 
 Here is example to make access control for engine with Session:
 ```js
@@ -142,8 +142,11 @@ module.exports = {
         type: 'engine',
         engine_name: 'MyEngine',
         prototype: MyEngine,
-        check_permission: function(data, callback) {
-            if (!data.req.session.login)
+        check_permission: function(callback) {
+
+			var conn = this.frex.getConnection(arguments);
+
+            if (!conn.req.session.login)
                 callback(false);
             else
                 callback(true);
@@ -184,6 +187,8 @@ myEngine.on('pump', function(count) {
 ```
 * You can see more details from `examples/chat'
 
+***
+
 ### Using CSRF middleware with Engine
 
 Pass your own params ( like CSRF token ) to the Engine. Using `setConnectionParams` method before you require your Engine.
@@ -199,6 +204,8 @@ App.require('MyEngine', function() {
 });
 ```
 * You can see more details from `examples/csrf'
+
+***
 
 License
 -
