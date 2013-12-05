@@ -1,11 +1,11 @@
 frex.js Web Framework
 =======
 
-A framework for creating modern web applications, it's easy-use for front-end developer and JavaScript people. frex.js is NOT a traditional MVC web framework. It aims to provide a new way to develop web service without server-side knowledge.
+A framework for creating modern web applications, it's easy-use for front-end developer and JavaScript people. frex.js is NOT a traditional MVC web framework. It aims to provide a new way to develop web service without server-side knowledge, do everthing in JavaScript.
 
 With integration of front-end/back-end web development experiences, it uses pure JavaScript method instead of tranditional web communication methods. There is no need to understand GET/POST methods of HTTP protocol and implement AJAX stuffs directly, developer totally can write a web service with front-end web development experence only.
 
-frex.js is based on Express web framework in Node.js, it means developer who is already familiar with node.js development do not need to learn new things for using frex.js, and furthermore, it can support all express middleware. If you do not want to use special feature of frex.js, you can still do your job under old school MVC model.
+frex.js is based on Express web framework in Node.js, it means developer who is already familiar with node.js development, no need to learn new things for using frex.js, and furthermore, it can support all express middleware. Even if you do not prefer to use special feature of frex.js, you can still do your job under old school MVC model.
 
 Features
 -
@@ -205,7 +205,120 @@ App.require('MyEngine', function() {
 ```
 * You can see more details from `examples/csrf'
 
+APIs
+-
+
+frex.js provides useful server-side APIs for engine and backend development:
+
+* [Engine](#engine)
+* [Error](#error)
+* [getConnection](#get_connection)
+* [getRequest](#get_request)
+* [getResponse](#get_response)
+
 ***
+
+<a name="engine" />
+### Engine(engine_name)
+
+Get specific engine.
+
+__Arguments__
+* engine_name - Engine name
+
+***
+
+<a name="error" />
+### Error(error_object)
+
+Convert Error object of Node.js to JSON for transfering to client.
+
+Error object of Node.js cannot be sent to client directly, object received by client is empty. This API can solve this problem.
+
+__Arguments__
+* error_object - Error object of Node.js
+
+__Example__
+```js
+
+var MyEngine = function() {
+    this.message = 'Hello world';
+};
+
+MyEngine.prototype.getError = function(callback) {
+
+    var err = new Error('Something\'s wrong');
+    
+    callback(MyEngine.frex.Error(err));
+};
+
+module.exports = {
+        type: 'engine',
+        engine_name: 'MyEngine',
+        prototype: MyEngine
+};
+```
+
+***
+
+<a name="get_connection" />
+### getConnection(arguments)
+
+Get connection which includes request and response from express.
+
+The implementation in engine can get current connection for session and some works else via this API.
+
+__Arguments__
+* arguments - `Arguments` of methods
+
+__Example__
+```js
+
+var MyEngine = function() {
+    this.message = 'Hello world';
+};
+
+MyEngine.prototype.login = function(username, password, callback) {
+
+    if (username == 'user' && password == 'pass') {
+
+        // Get connection
+        var conn = MyEngine.frex.getConnection(Arguments);
+
+        // Access session of request from connection
+        conn.req.session.logined = true;
+        return;
+    }
+
+    callback(false);
+};
+
+module.exports = {
+        type: 'engine',
+        engine_name: 'MyEngine',
+        prototype: MyEngine
+};
+```
+
+***
+
+<a name="get_request" />
+### getRequest(arguments)
+
+Get request from connection.
+
+__Arguments__
+* arguments - `Arguments` of methods
+
+***
+
+<a name="get_response" />
+### getResponse(arguments)
+
+Get response from connection.
+
+__Arguments__
+* arguments - `Arguments` of methods
 
 License
 -
