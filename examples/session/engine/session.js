@@ -4,14 +4,16 @@ var Session = function() {
 	var self = this;
 };
 
-Session.prototype.auth = function(username, password, callback, data) {
+Session.prototype.auth = function(username, password, callback) {
 	var self = this;
 
-	if (username == 'fred' && password == 'stacy') {
-		if (!data.req.session)
-			data.req.session = {};
+	var conn = Session.frex.getConnection(arguments);
 
-		data.req.session.logined = true;
+	if (username == 'fred' && password == 'stacy') {
+		if (!conn.req.session)
+			conn.req.session = {};
+
+		conn.req.session.logined = true;
 
 		callback(null);
 
@@ -21,19 +23,24 @@ Session.prototype.auth = function(username, password, callback, data) {
 	callback(new Error('incorrect username or password'));
 };
 
-Session.prototype.signOut = function(callback, data) {
-	if (!data.req.session)
-		data.req.session = {};
+Session.prototype.signOut = function(callback) {
 
-	data.req.session.logined = false;
+	var conn = Session.frex.getConnection(arguments);
+
+	if (!conn.req.session)
+		conn.req.session = {};
+
+	conn.req.session.logined = false;
 
 	callback(null);
 };
 
-Session.prototype.isLogin = function(callback, data) {
+Session.prototype.isLogin = function(callback) {
+
+	var conn = Session.frex.getConnection(arguments);
 
 	try {
-		if (data.req.session.logined) {
+		if (conn.req.session.logined) {
 
 			callback(true);
 			return;
