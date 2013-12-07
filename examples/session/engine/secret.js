@@ -10,11 +10,14 @@ module.exports = {
 	type: 'engine',
 	engine_name: 'Secret',
 	prototype: Secret,
-	check_permission: function(data, callback) {
+	check_permission: function(callback) {
+
+		var conn = this.frex.getConnection(arguments);
+
 		try {
 
 			// Allow to access this engine
-			if (data.req.session.logined) {
+			if (conn.req.session.logined) {
 				callback(true);
 				return;
 			}

@@ -1,6 +1,7 @@
 module.exports = {
 	'/': function(req, res) {
-		var products = req.frex.Engine('Products');
+
+		var products = this.frex.Engine('Products');
 
 		products.list(function(err, items) {
 

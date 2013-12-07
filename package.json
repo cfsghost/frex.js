@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "express": ">= 3.0.0",
-    "courser": "0.0.6",
+    "courser": ">= 0.0.7",
     "jade": "~0.30.0",
     "node-array": "0.0.6",
     "node-uuid": "~1.4.0"
